@@ -37,7 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'rest_framework',
+
+    'my_auth',
 ]
+
+# Substituting the default Django user with a custom one.
+AUTH_USER_MODEL = 'my_auth.MyUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
