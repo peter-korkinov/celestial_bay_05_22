@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from my_auth.models import MyUser
-from my_auth.serializers import RegisterSerializer, ChangePasswordSerializer
+from my_auth.serializers import RegisterSerializer, ChangePasswordSerializer, UpdateUserSerializer
 
 
 class RegisterView(generics.CreateAPIView):
@@ -32,3 +32,9 @@ class ChangePasswordView(generics.UpdateAPIView):
     queryset = MyUser.objects.all()
     permission_classes = (IsAuthenticated,)
     serializer_class = ChangePasswordSerializer
+
+
+class UpdateUserView(generics.UpdateAPIView):
+    queryset = MyUser.objects.all()
+    permission_classes = (IsAuthenticated,)
+    serializer_class = UpdateUserSerializer
